@@ -3,13 +3,15 @@ import { SafeAreaView, Text, View, StyleSheet, TouchableNativeFeedback, Image } 
 
 import { CounterProps } from '../navigators/RootStackNavigator/types';
 
-function CounterScreen({}: CounterProps) {
+function CounterScreen({ navigation }: CounterProps) {
   const [count, setCount] = useState(0);
 
   return (
     <SafeAreaView>
       <Text>Counter Screen</Text>
-      <TouchableNativeFeedback>
+      <TouchableNativeFeedback onPress={() => {
+        navigation.navigate('BottomTab', { screen: 'Home' });
+      }}>
         <Text>GoToHome</Text>
       </TouchableNativeFeedback>
       <View>

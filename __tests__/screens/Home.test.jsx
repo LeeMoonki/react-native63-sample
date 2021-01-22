@@ -3,31 +3,39 @@
  */
 
 import React from 'react';
+import { create, act } from 'react-test-renderer';
 import { render, fireEvent } from '@testing-library/react-native';
-import { useDispatch, useSelector } from 'react-redux';
 
 import HomeScreen from '../../src/screens/Home';
 import { todoState } from '../../fixture/todo';
 import { ADD_TODO } from '../../src/reducers/todo/types';
+import { useDispatch, useSelector } from 'react-redux';
 
 jest.mock('react-redux');
 
-describe('Home Screen', () => {
+describe('Home Screen 테스트', () => {
   const dispatchSpy = jest.fn();
   useSelector.mockImplementation(selector => selector(todoState));
   useDispatch.mockImplementation(() => dispatchSpy);
 
-  afterEach(() => {
-    dispatchSpy.mockClear();
-  });
+  // it('useSlector를 통해 todos의 list를 가져온다', () => {
+  //   let screen;
 
-  it('Pressing AddTodo', () => {
-    const { getByText } = render(<HomeScreen />);
+  //   act(() => {
+  //     screen = create(<HomeScreen />);
+  //   });
 
-    fireEvent(getByText('ADD TODO'), 'onPress');
+  //   expect(screen.toJSON()).toMatchSnapshot();
+  // });
 
-    expect(dispatchSpy).toHaveBeenCalledTimes(1);
-    expect(dispatchSpy).toHaveBeenCalledWith(
+  it('ADD TODO 버튼을 클릭했을 때 ADD_TODO action을 dispatch 한다.', () => {
+    const { queryByText } = render(<HomeScreen />);
+    const $addTodoButton = queryByText('ADD TODO').parent;
+
+    fireEvent($addTodoButton, 'onPress');
+
+    expect(dispatchSpy).toBeCalledTimes(1);
+    expect(dispatchSpy).toBeCalledWith(
       expect.objectContaining({ type: ADD_TODO })
     );
   });

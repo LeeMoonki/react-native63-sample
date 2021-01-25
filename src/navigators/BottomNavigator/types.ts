@@ -18,7 +18,10 @@ export type HomeProps = {
   navigation: HomeScreenNavigationProp;
 };
 
-type TodoListDoneScreenRouteProp = RouteProp<BottomTabParamList, 'TodoListDone'>;
+type TodoListDoneScreenRouteProp = RouteProp<
+  BottomTabParamList,
+  'TodoListDone'
+>;
 type TodoListDoneScreenNavigationProp = CompositeNavigationProp<
   BottomTabNavigationProp<BottomTabParamList, 'TodoListDone'>,
   StackNavigationProp<RootStackParamList>

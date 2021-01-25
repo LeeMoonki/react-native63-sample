@@ -8,12 +8,11 @@ import {
   TouchableNativeFeedback,
 } from 'react-native';
 import { RootState } from '../reducers/types';
-import { Todo } from '../reducers/todo/types';
+import { Todo, ADD_TODO } from '../reducers/todo/types';
 
 import { HomeProps } from '../navigators/BottomNavigator/types';
 
 import { useSelector, useDispatch } from 'react-redux';
-import { ADD_TODO } from '../reducers/todo/types';
 
 function TodoItem({ name, done }: Todo) {
   return (
@@ -31,14 +30,15 @@ function HomeScreen({}: HomeProps) {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
-      <Text>Home Screen</Text>
+        <Text>Home Screen</Text>
         <TouchableNativeFeedback
           onPress={() => {
             dispatch({ type: ADD_TODO, todo: { name: '할 일1', done: false } });
           }}>
           <Text style={styles.buttonAdd}>ADD TODO</Text>
         </TouchableNativeFeedback>
-        {todos.list.length > 0 && todos.list.map((todo, index) => <TodoItem key={index} {...todo} />)}
+        {todos.list.length > 0 &&
+          todos.list.map((todo, index) => <TodoItem key={index} {...todo} />)}
       </ScrollView>
     </SafeAreaView>
   );
@@ -52,8 +52,8 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     width: 100,
     textAlign: 'center',
-    backgroundColor: '#abffae'
-  }
+    backgroundColor: '#abffae',
+  },
 });
 
 export default HomeScreen;

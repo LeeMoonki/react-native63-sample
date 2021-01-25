@@ -4,7 +4,7 @@ import { RootStackParamList } from './types';
 
 import SplashScreen from '../../screens/Splash';
 import CounterScreen from '../../screens/Counter';
-import BottomTabNavigator from '../BottomNavigator'
+import BottomTabNavigator from '../BottomNavigator';
 
 const RootStack = createStackNavigator<RootStackParamList>();
 
@@ -16,10 +16,10 @@ const RootStackNavigator = () => {
         setIsLoading(false);
       }, 2000);
     }
-  }, []);
+  }, [isLoading]);
 
   if (isLoading) {
-    return <SplashScreen />
+    return <SplashScreen />;
   }
 
   return (

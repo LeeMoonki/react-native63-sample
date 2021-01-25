@@ -1,7 +1,6 @@
 import {
   TodoState,
   TodoActionType,
-  
   // action type
   ADD_TODO,
 } from './types';
@@ -10,7 +9,10 @@ const initState: TodoState = {
   list: [],
 };
 
-export default function todoReducer(state = initState, action: TodoActionType): TodoState {
+export default function todoReducer(
+  state = initState,
+  action: TodoActionType,
+): TodoState {
   switch (action.type) {
     case ADD_TODO: {
       return {
@@ -18,6 +20,7 @@ export default function todoReducer(state = initState, action: TodoActionType): 
         list: state.list.concat([action.todo]),
       };
     }
-    default: return state;
+    default:
+      return state;
   }
 }

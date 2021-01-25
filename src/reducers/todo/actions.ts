@@ -5,4 +5,4 @@ export function addTodo(todo: Todo): AddTodoActionType {
     type: ADD_TODO,
     todo,
   };
-};
+}

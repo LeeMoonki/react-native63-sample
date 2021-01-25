@@ -12,6 +12,6 @@ export const ADD_TODO = 'ADD_TODO';
 export interface AddTodoActionType {
   type: typeof ADD_TODO;
   todo: Todo;
-};
+}
 
 export type TodoActionType = AddTodoActionType;

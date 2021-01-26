@@ -8,6 +8,7 @@
     "start": "react-native start",
     "test": "jest --watch",
     "lint": "eslint .",
+    "fix": "eslint --fix .",
     "formatting": "prettier --write ."
   },
   "dependencies": {

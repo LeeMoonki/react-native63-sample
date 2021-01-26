@@ -7,9 +7,7 @@ import TodoListDoneScreen from '../../screens/TodoListDone';
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 
-const BottomTabNavigator = (props: any) => {
-  console.log('BottomTabNavigator props : ', props);
-
+const BottomTabNavigator = () => {
   return (
     <BottomTab.Navigator initialRouteName="Home">
       <BottomTab.Screen name="Home" component={HomeScreen} />

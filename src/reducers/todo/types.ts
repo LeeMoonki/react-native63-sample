@@ -4,7 +4,7 @@ export type Todo = {
   due?: Date;
 };
 
-export type TodoState = {
+export type TodoStateType = {
   list: Todo[];
 };
 

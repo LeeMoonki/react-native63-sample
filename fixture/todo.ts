@@ -1,6 +1,6 @@
-import { TodoState } from '../src/reducers/todo/types';
+import { TodoStateType } from '../src/reducers/todo/types';
 
-const todoReducerState: TodoState = {
+const todoReducerState: TodoStateType = {
   list: [
     { name: '할일1', done: false },
     { name: '할일2', done: true },

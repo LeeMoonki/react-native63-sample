@@ -16,16 +16,26 @@ function TodoListDoneScreen({ navigation }: TodoListDoneProps) {
         onPress={() => {
           navigation.navigate('Counter');
         }}>
-        <Text style={styles.button}>GoToCounter</Text>
+        <Text style={styles.buttonCounter}>GoToCounter</Text>
+      </TouchableNativeFeedback>
+      <TouchableNativeFeedback
+        onPress={() => {
+          navigation.navigate('Login');
+        }}>
+        <Text style={styles.buttonLogin}>GoToLogin</Text>
       </TouchableNativeFeedback>
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  button: {
+  buttonCounter: {
     width: 200,
     backgroundColor: '#abff12',
+  },
+  buttonLogin: {
+    width: 200,
+    backgroundColor: '#ffab12',
   },
 });
 

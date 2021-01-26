@@ -1,18 +1,18 @@
 import {
-  TodoState,
+  TodoStateType,
   TodoActionType,
   // action type
   ADD_TODO,
 } from './types';
 
-const initState: TodoState = {
+const initState: TodoStateType = {
   list: [],
 };
 
 export default function todoReducer(
   state = initState,
   action: TodoActionType,
-): TodoState {
+): TodoStateType {
   switch (action.type) {
     case ADD_TODO: {
       return {

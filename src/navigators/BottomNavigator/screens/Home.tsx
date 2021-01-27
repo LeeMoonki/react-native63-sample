@@ -7,10 +7,10 @@ import {
   StyleSheet,
   TouchableNativeFeedback,
 } from 'react-native';
-import { RootState } from '../reducers/types';
-import { Todo, ADD_TODO } from '../reducers/todo/types';
+import { RootState } from '../../../reducers/types';
+import { Todo, ADD_TODO } from '../../../reducers/todo/types';
 
-import { HomeProps } from '../navigators/BottomNavigator/types';
+import { HomeProps } from '../types';
 
 import { useSelector, useDispatch } from 'react-redux';
 

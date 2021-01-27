@@ -1,6 +1,6 @@
 import React from 'react';
 import { SafeAreaView, Text, TouchableNativeFeedback } from 'react-native';
-import { CompleteProps } from '../navigators/SignupStackNavigator/types';
+import { CompleteProps } from '../types';
 
 const Complete = ({ navigation }: CompleteProps) => {
   return (

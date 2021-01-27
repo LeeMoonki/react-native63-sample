@@ -6,7 +6,7 @@ import {
   TouchableNativeFeedback,
 } from 'react-native';
 
-import { CounterProps } from '../navigators/RootStackNavigator/types';
+import { CounterProps } from '../types';
 
 function CounterScreen({ navigation }: CounterProps) {
   const [count, setCount] = useState(0);

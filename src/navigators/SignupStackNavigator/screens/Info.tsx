@@ -1,6 +1,6 @@
 import React from 'react';
 import { SafeAreaView, Text, TouchableNativeFeedback } from 'react-native';
-import { InfoProps } from '../navigators/SignupStackNavigator/types';
+import { InfoProps } from '../types';
 
 const Info = ({ navigation }: InfoProps) => {
   return (

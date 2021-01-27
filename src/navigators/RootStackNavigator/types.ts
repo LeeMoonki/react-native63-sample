@@ -5,9 +5,10 @@ import { SignupStackParamList } from '../SignupStackNavigator/types';
 
 export type RootStackParamList = {
   BottomTab: NavigatorScreenParams<BottomTabParamList>;
+  SignupStack: NavigatorScreenParams<SignupStackParamList>;
   Counter: undefined;
   Login: undefined;
-  SignupStack: NavigatorScreenParams<SignupStackParamList>;
+  FullScreenModal: undefined;
 };
 
 export type BottomTabProps = StackScreenProps<RootStackParamList, 'BottomTab'>;
@@ -15,6 +16,11 @@ export type BottomTabProps = StackScreenProps<RootStackParamList, 'BottomTab'>;
 export type CounterProps = StackScreenProps<RootStackParamList, 'Counter'>;
 
 export type LoginProps = StackScreenProps<RootStackParamList, 'Login'>;
+
+export type FullScreenModalProps = StackScreenProps<
+  RootStackParamList,
+  'FullScreenModal'
+>;
 
 export type SignupStackProps = StackScreenProps<
   RootStackParamList,

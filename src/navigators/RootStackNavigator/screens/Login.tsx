@@ -1,6 +1,6 @@
 import React from 'react';
 import { SafeAreaView, Text, TouchableNativeFeedback } from 'react-native';
-import { LoginProps } from '../navigators/RootStackNavigator/types';
+import { LoginProps } from '../types';
 
 const Login = ({ navigation }: LoginProps) => {
   return (

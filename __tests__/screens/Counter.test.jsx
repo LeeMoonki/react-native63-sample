@@ -3,7 +3,7 @@ import { Image, TouchableNativeFeedback } from 'react-native';
 import { create } from 'react-test-renderer';
 import { render, fireEvent, within } from '@testing-library/react-native';
 
-import CounterScreen from '../../src/screens/Counter';
+import CounterScreen from '../../src/navigators/RootStackNavigator/screens/Counter';
 
 describe('Counter Screen', () => {
   let screen, $screen;

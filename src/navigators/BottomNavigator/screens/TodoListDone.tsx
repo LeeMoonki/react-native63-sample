@@ -6,7 +6,7 @@ import {
   TouchableNativeFeedback,
 } from 'react-native';
 
-import { TodoListDoneProps } from '../navigators/BottomNavigator/types';
+import { TodoListDoneProps } from '../types';
 
 function TodoListDoneScreen({ navigation }: TodoListDoneProps) {
   return (
@@ -24,6 +24,12 @@ function TodoListDoneScreen({ navigation }: TodoListDoneProps) {
         }}>
         <Text style={styles.buttonLogin}>GoToLogin</Text>
       </TouchableNativeFeedback>
+      <TouchableNativeFeedback
+        onPress={() => {
+          navigation.navigate('FullScreenModal');
+        }}>
+        <Text style={styles.buttonFullScreenModal}>Show Full Screen Modal</Text>
+      </TouchableNativeFeedback>
     </SafeAreaView>
   );
 }
@@ -36,6 +42,10 @@ const styles = StyleSheet.create({
   buttonLogin: {
     width: 200,
     backgroundColor: '#ffab12',
+  },
+  buttonFullScreenModal: {
+    width: 200,
+    backgroundColor: '#ff8888',
   },
 });
 

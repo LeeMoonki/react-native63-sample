@@ -2,8 +2,8 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { BottomTabParamList } from './types';
 
-import HomeScreen from '../../screens/Home';
-import TodoListDoneScreen from '../../screens/TodoListDone';
+import HomeScreen from './screens/Home';
+import TodoListDoneScreen from './screens/TodoListDone';
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 

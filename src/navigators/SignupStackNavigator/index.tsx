@@ -2,8 +2,8 @@ import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { SignupStackParamList } from './types';
 
-import InfoScreen from '../../screens/Info';
-import CompleteScreen from '../../screens/Complete';
+import InfoScreen from './screens/Info';
+import CompleteScreen from './screens/Complete';
 
 const SignupStack = createStackNavigator<SignupStackParamList>();
 

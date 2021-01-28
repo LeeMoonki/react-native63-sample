@@ -11,7 +11,7 @@ describe('todo reducer', () => {
   });
 
   it('ADD_TODO (기본 리스트)', () => {
-    const todo = { name: '할일', done: false }
+    const todo = { id: 0, name: '할일', done: false }
     const action = addTodo({ todo });
     const newState = todoReducer(initState, action);
 
@@ -23,7 +23,7 @@ describe('todo reducer', () => {
     const addListAction = addTodoList(listName);
     const prevState = todoReducer(initState, addListAction);
 
-    const todo = { name: '할일', done: false }
+    const todo = { id: 0, name: '할일', done: false }
     const addTodoAction = addTodo({ list: listName, todo });
     const newState = todoReducer(prevState, addTodoAction);
 

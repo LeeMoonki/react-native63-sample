@@ -1,6 +1,7 @@
 import { defaultListName } from './index';
 
 export type Todo = {
+  id?: number;
   name: string;
   done: boolean;
   due?: Date;

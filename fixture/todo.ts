@@ -3,9 +3,9 @@ import { defaultListName } from '../src/reducers/todo';
 
 const todoReducerState: TodoStateType = {
   [defaultListName]: [
-    { name: '할일1', done: false },
-    { name: '할일2', done: true },
-    { name: '할일3', done: false, due: new Date() },
+    { id: 0, name: '할일1', done: false },
+    { id: 1, name: '할일2', done: true },
+    { id: 2, name: '할일3', done: false, due: new Date() },
   ]
 };
 

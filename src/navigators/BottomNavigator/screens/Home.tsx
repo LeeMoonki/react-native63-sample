@@ -9,11 +9,11 @@ import {
 } from 'react-native';
 import { RootState } from '../../../reducers/types';
 import { defaultListName } from '../../../reducers/todo';
-import { Todo, ADD_TODO } from '../../../reducers/todo/types';
+import { Todo } from '../../../reducers/todo/types';
 
 import { HomeProps } from '../types';
 
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 function TodoItem({ name, done }: Todo) {
   return (
@@ -26,18 +26,11 @@ function TodoItem({ name, done }: Todo) {
 
 function HomeScreen({ navigation }: HomeProps) {
   const todos = useSelector((state: RootState) => state.todos);
-  const dispatch = useDispatch();
 
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
         <Text>Home Screen</Text>
-        <TouchableNativeFeedback
-          onPress={() => {
-            dispatch({ type: ADD_TODO, todo: { name: '할 일1', done: false } });
-          }}>
-          <Text style={styles.buttonAdd}>ADD TODO</Text>
-        </TouchableNativeFeedback>
         <TouchableNativeFeedback
           onPress={() => {
             navigation.navigate('AddTodoModal');

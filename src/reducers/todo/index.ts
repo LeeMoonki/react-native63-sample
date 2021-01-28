@@ -15,6 +15,7 @@ export default function todoReducer(
   state = initState,
   action: TodoActionType,
 ): TodoStateType {
+  let countId = 0;
   switch (action.type) {
     case ADD_TODO_LIST: {
       return {
@@ -26,7 +27,7 @@ export default function todoReducer(
       const list = action.list || defaultListName;
       return {
         ...state,
-        [list]: state[list].concat([action.todo]),
+        [list]: state[list].concat([{ id: countId++, ...action.todo }]),
       };
     }
     default:

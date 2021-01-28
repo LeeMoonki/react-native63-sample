@@ -23,7 +23,7 @@ function TodoItem({ name, done }: Todo) {
   );
 }
 
-function HomeScreen({}: HomeProps) {
+function HomeScreen({ navigation }: HomeProps) {
   const todos = useSelector((state: RootState) => state.todos);
   const dispatch = useDispatch();
 
@@ -36,6 +36,12 @@ function HomeScreen({}: HomeProps) {
             dispatch({ type: ADD_TODO, todo: { name: '할 일1', done: false } });
           }}>
           <Text style={styles.buttonAdd}>ADD TODO</Text>
+        </TouchableNativeFeedback>
+        <TouchableNativeFeedback
+          onPress={() => {
+            navigation.navigate('AddTodoModal');
+          }}>
+          <Text style={styles.buttonAdd}>ADD TODO With Modal</Text>
         </TouchableNativeFeedback>
         {todos.list.length > 0 &&
           todos.list.map((todo, index) => <TodoItem key={index} {...todo} />)}

@@ -9,6 +9,7 @@ export type RootStackParamList = {
   Counter: undefined;
   Login: undefined;
   FullScreenModal: undefined;
+  AddTodoModal: undefined;
 };
 
 export type BottomTabProps = StackScreenProps<RootStackParamList, 'BottomTab'>;
@@ -20,6 +21,11 @@ export type LoginProps = StackScreenProps<RootStackParamList, 'Login'>;
 export type FullScreenModalProps = StackScreenProps<
   RootStackParamList,
   'FullScreenModal'
+>;
+
+export type AddTodoModalProps = StackScreenProps<
+  RootStackParamList,
+  'AddTodoModal'
 >;
 
 export type SignupStackProps = StackScreenProps<

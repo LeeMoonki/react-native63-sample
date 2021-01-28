@@ -9,6 +9,7 @@ import SplashScreen from './screens/Splash';
 import CounterScreen from './screens/Counter';
 import LoginScreen from './screens/Login';
 import FullScreenModal from './screens/FullScreenModal';
+import AddTodoModal from './screens/AddTodoModal';
 
 import BottomTabNavigator from '../BottomNavigator';
 import SignupStackNavigator from '../SignupStackNavigator';
@@ -43,6 +44,14 @@ const RootStackNavigator = () => {
         options={{
           // cardStyle: { backgroundColor: 'rgba(0, 0, 0, 0.6)' },
           // cardOverlayEnabled: true,
+          ...TransitionPresets.ModalTransition,
+        }}
+      />
+      <RootStack.Screen
+        name="AddTodoModal"
+        component={AddTodoModal}
+        options={{
+          cardStyle: { backgroundColor: 'transparent' },
           ...TransitionPresets.ModalTransition,
         }}
       />

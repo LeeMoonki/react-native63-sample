@@ -18,16 +18,6 @@ describe('Home Screen 테스트', () => {
   useSelector.mockImplementation(selector => selector(todoState));
   useDispatch.mockImplementation(() => dispatchSpy);
 
-  // it('useSlector를 통해 todos의 list를 가져온다', () => {
-  //   let screen;
-
-  //   act(() => {
-  //     screen = create(<HomeScreen />);
-  //   });
-
-  //   expect(screen.toJSON()).toMatchSnapshot();
-  // });
-
   it('ADD TODO 버튼을 클릭했을 때 ADD_TODO action을 dispatch 한다.', () => {
     const { queryByText } = render(<HomeScreen />);
     const $addTodoButton = queryByText('ADD TODO').parent;

@@ -8,6 +8,7 @@ import {
   TouchableNativeFeedback,
 } from 'react-native';
 import { RootState } from '../../../reducers/types';
+import { defaultListName } from '../../../reducers/todo';
 import { Todo, ADD_TODO } from '../../../reducers/todo/types';
 
 import { HomeProps } from '../types';
@@ -43,8 +44,10 @@ function HomeScreen({ navigation }: HomeProps) {
           }}>
           <Text style={styles.buttonAdd}>ADD TODO With Modal</Text>
         </TouchableNativeFeedback>
-        {todos.list.length > 0 &&
-          todos.list.map((todo, index) => <TodoItem key={index} {...todo} />)}
+        {todos[defaultListName].length > 0 &&
+          todos[defaultListName].map((todo, index) => (
+            <TodoItem key={index} {...todo} />
+          ))}
       </ScrollView>
     </SafeAreaView>
   );

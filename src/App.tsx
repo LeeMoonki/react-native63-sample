@@ -6,7 +6,8 @@
  */
 
 import 'react-native-gesture-handler';
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
+import { NavigationTheme } from './Theme';
 import React from 'react';
 
 import { Provider } from 'react-redux';
@@ -16,7 +17,14 @@ import RootStackNavigator from './navigators/RootStackNavigator';
 const App = () => {
   return (
     <Provider store={store}>
-      <NavigationContainer>
+      <NavigationContainer
+        theme={{
+          dark: NavigationTheme.dark,
+          colors: {
+            ...DefaultTheme.colors,
+            ...NavigationTheme.colors,
+          },
+        }}>
         <RootStackNavigator />
       </NavigationContainer>
     </Provider>

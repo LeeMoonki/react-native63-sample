@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  Dimensions,
   SafeAreaView,
   ScrollView,
   View,
@@ -15,11 +16,16 @@ import { HomeProps } from '../types';
 
 import { useSelector } from 'react-redux';
 
-function TodoItem({ name, done }: Todo) {
+function TodoItem({ name, done, id }: Todo) {
   return (
-    <View>
-      <Text>{done ? '완료' : '진행중'}</Text>
-      <Text>{name}</Text>
+    <View style={todoItemStyles.container}>
+      <Text
+        style={{
+          ...todoItemStyles.todoText,
+          ...(done ? todoItemStyles.doneText : {}),
+        }}>
+        {`${id} ${name}`}
+      </Text>
     </View>
   );
 }
@@ -29,19 +35,20 @@ function HomeScreen({ navigation }: HomeProps) {
 
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView>
-        <Text>Home Screen</Text>
-        <TouchableNativeFeedback
-          onPress={() => {
-            navigation.navigate('AddTodoModal');
-          }}>
-          <Text style={styles.buttonAdd}>ADD TODO With Modal</Text>
-        </TouchableNativeFeedback>
+      <ScrollView style={styles.todoWrapper}>
         {todos[defaultListName].length > 0 &&
-          todos[defaultListName].map((todo, index) => (
-            <TodoItem key={index} {...todo} />
+          todos[defaultListName].map(todo => (
+            <TodoItem key={todo.id} {...todo} />
           ))}
       </ScrollView>
+      <TouchableNativeFeedback
+        onPress={() => {
+          navigation.navigate('AddTodoModal');
+        }}>
+        <View style={styles.buttonAdd}>
+          <Text style={styles.buttonAddText}>+</Text>
+        </View>
+      </TouchableNativeFeedback>
     </SafeAreaView>
   );
 }
@@ -50,11 +57,49 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
+  todoWrapper: {
+    borderTopWidth: 1,
+    borderColor: '#ddd',
+  },
   buttonAdd: {
-    paddingVertical: 10,
-    width: 100,
+    position: 'absolute',
+    left: Dimensions.get('window').width / 2 - 25,
+    bottom: 15,
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: 50,
+    maxWidth: 50,
+    height: 50,
+    maxHeight: 50,
+    borderRadius: 100,
+    backgroundColor: '#3475dd',
+    zIndex: 10,
+  },
+  buttonAddText: {
+    color: '#fff',
+    fontSize: 35,
     textAlign: 'center',
-    backgroundColor: '#abffae',
+  },
+});
+
+const todoItemStyles = StyleSheet.create({
+  container: {
+    flex: 1,
+    flexDirection: 'row',
+    paddingVertical: 10,
+    paddingHorizontal: 15,
+    backgroundColor: '#fff',
+    borderBottomWidth: 1,
+    borderColor: '#ddd',
+  },
+  todoText: {
+    fontSize: 24,
+    color: '#232323',
+  },
+  doneText: {
+    color: '#dedede',
+    textDecorationLine: 'line-through',
   },
 });
 

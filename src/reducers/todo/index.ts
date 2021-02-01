@@ -11,26 +11,29 @@ export const initState: TodoStateType = {
   [defaultListName]: [],
 };
 
-export default function todoReducer(
-  state = initState,
-  action: TodoActionType,
-): TodoStateType {
-  let countId = 0;
-  switch (action.type) {
-    case ADD_TODO_LIST: {
-      return {
-        ...state,
-        [action.list]: [],
-      };
+export default (function () {
+  let countId = -1;
+
+  return function todoReducer(
+    state = initState,
+    action: TodoActionType,
+  ): TodoStateType {
+    switch (action.type) {
+      case ADD_TODO_LIST: {
+        return {
+          ...state,
+          [action.list]: [],
+        };
+      }
+      case ADD_TODO: {
+        const list = action.list || defaultListName;
+        return {
+          ...state,
+          [list]: state[list].concat([{ id: ++countId, ...action.todo }]),
+        };
+      }
+      default:
+        return state;
     }
-    case ADD_TODO: {
-      const list = action.list || defaultListName;
-      return {
-        ...state,
-        [list]: state[list].concat([{ id: countId++, ...action.todo }]),
-      };
-    }
-    default:
-      return state;
-  }
-}
+  };
+})();

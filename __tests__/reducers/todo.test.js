@@ -29,4 +29,18 @@ describe('todo reducer', () => {
 
     expect(newState[listName][0]).toEqual(todo);
   });
+
+  it('ADD_TODO시 id가 유니크하게 증가해야 한다.', () => {
+    const todos = [{ name: '할일1', done: false }, { name: '할일2', done: false }]
+    const s1 = todoReducer(initState, addTodo({ todo: todos[0] }));
+    const s2 = todoReducer(s1, addTodo({ todo: todos[1] }));
+
+    expect(s2.todos.length).toBe(2);
+
+    const ids = new Set();
+
+    s2.todos.forEach(t => ids.add(t.id));
+
+    expect(ids.size).toBe(2);
+  });
 });

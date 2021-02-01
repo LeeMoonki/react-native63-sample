@@ -25,6 +25,7 @@ const AddTodoModal = ({ navigation }: AddTodoModalProps) => {
         <TouchableNativeFeedback onPress={() => {}}>
           <View style={styles.modal}>
             <TextInput
+              testID="todoNameInput"
               style={styles.inputTodoName}
               value={todoName}
               onChangeText={text => setTodoName(text)}
@@ -33,7 +34,12 @@ const AddTodoModal = ({ navigation }: AddTodoModalProps) => {
               <TouchableNativeFeedback
                 testID="addTodo"
                 onPress={() => {
-                  dispatch(addTodo({ todo: { name: '할일', done: false } }));
+                  if (todoName) {
+                    dispatch(
+                      addTodo({ todo: { name: todoName, done: false } }),
+                    );
+                    navigation.goBack();
+                  }
                 }}>
                 <View style={{ ...styles.button, ...styles.buttonAdd }}>
                   <Text style={styles.buttonText}>할일 추가</Text>

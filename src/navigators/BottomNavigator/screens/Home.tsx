@@ -1,13 +1,14 @@
 import React from 'react';
 import {
   Dimensions,
-  SafeAreaView,
   ScrollView,
   View,
   Text,
   StyleSheet,
   TouchableNativeFeedback,
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+// import { Picker } from '@react-native-picker/picker';
 import { RootState } from '../../../reducers/types';
 import { defaultListName } from '../../../reducers/todo';
 import { Todo } from '../../../reducers/todo/types';
@@ -36,6 +37,11 @@ function HomeScreen({ navigation }: HomeProps) {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.todoWrapper}>
+        {/* <Picker selectedValue="foo">
+          {Object.keys(todos).map((name, index) => (
+            <Picker.Item key={`${name}${index}`} label={name} value={name} />
+          ))}
+        </Picker> */}
         {todos[defaultListName].length > 0 &&
           todos[defaultListName].map(todo => (
             <TodoItem key={todo.id} {...todo} />

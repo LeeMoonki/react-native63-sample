@@ -9,6 +9,7 @@ import {
 export const defaultListName = 'todos';
 export const initState: TodoStateType = {
   [defaultListName]: [],
+  foo: [],
 };
 
 export default (function () {
